@@ -31,8 +31,7 @@ public class GameMenu {
 
     @FXML
     protected void onMysteryClick() {
-        // not_impl
-        // https://i.kym-cdn.com/entries/icons/original/000/042/524/maliciouscover.jpg
+        BaseApplication.sh.activate("Mystery");
     }
 
 }

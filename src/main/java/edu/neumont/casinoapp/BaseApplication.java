@@ -25,6 +25,7 @@ public class BaseApplication extends Application {
         sh.addScene("Blackjack", FXMLLoader.load(getClass().getResource( "Blackjack.fxml" )));
         sh.addScene("KingsCorner", FXMLLoader.load(getClass().getResource( "KingsCorner.fxml" )));
         sh.addScene("AceToTen", FXMLLoader.load(getClass().getResource( "AceToTen.fxml" )));
+        sh.addScene("Mystery", FXMLLoader.load(getClass().getResource( "Mystery.fxml" )));
         stage.show();
     }
 
