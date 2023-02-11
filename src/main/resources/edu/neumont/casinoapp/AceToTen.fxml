@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@css/application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.neumont.casinoapp.AceToTen">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@assets/Backgrounds/GenericFeltMatBG.jpeg" />
+         </image>
+      </ImageView>
+      <Label layoutX="212.0" layoutY="14.0" styleClass="header-game" text="Ace To Ten" AnchorPane.topAnchor="15.0" />
+      <Button layoutX="14.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#onMenuClick" styleClass="button-style-medieval" text="Return to Menu" />
+   </children>
+</AnchorPane>
