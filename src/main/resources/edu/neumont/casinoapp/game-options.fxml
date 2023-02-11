@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.neumont.casinoapp.GameOptions">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/Overall UI/GameOptionMenuBG.jpg" />
+         </image></ImageView>
+      <Button layoutX="87.0" layoutY="317.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="336.0" layoutY="317.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="207.0" layoutY="317.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="477.0" layoutY="317.0" mnemonicParsing="false" text="Button" />
+      <ImageView fitHeight="97.0" fitWidth="106.0" layoutX="60.0" layoutY="228.0" onMouseClicked="#BlackJackMClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/OverallUI/BlackjackIcon.png" />
+         </image></ImageView>
+      <ImageView fitHeight="97.0" fitWidth="106.0" layoutX="179.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="97.0" fitWidth="106.0" layoutX="315.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="97.0" fitWidth="114.0" layoutX="454.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="88.0" layoutY="355.0" text="BlackJack" />
+      <Label layoutX="195.0" layoutY="355.0" prefHeight="17.0" prefWidth="75.0" text="Kings Corner" />
+      <Label layoutX="339.0" layoutY="355.0" text="Ace 2 10" />
+      <Label layoutX="488.0" layoutY="355.0" prefHeight="17.0" prefWidth="46.0" text="Slots" />
+      <Label layoutX="215.0" layoutY="60.0" prefHeight="71.0" prefWidth="199.0" text="Choose your game">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
