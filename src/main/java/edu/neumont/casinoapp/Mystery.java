@@ -8,6 +8,11 @@ import java.net.URL;
 public class Mystery {
 
     @FXML
+    protected void initialize() {
+
+    }
+
+    @FXML
     protected void onReturnMenu() {
         BaseApplication.sh.activate("GameMenu");
     }

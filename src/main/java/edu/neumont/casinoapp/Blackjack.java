@@ -27,8 +27,17 @@ public class Blackjack {
     private ImageView[] playerCards = {imgvPlayerCard1, imgvPlayerCard2, imgvPlayerCard3, imgvPlayerCard4, imgvPlayerCard5, imgvPlayerCard6};
     private ImageView[] dealerCards = {imgvDealerCard1, imgvDealerCard2, imgvDealerCard3, imgvDealerCard4, imgvDealerCard5, imgvDealerCard6};
 
+    // NOTES
+    // Player and Dealer can draw up to a maximum of 6 cards per hand, program should prevent any extra draws
+    // Cheat method should reset on drawing a new hand
+    // Dealer's hand should start hidden and reveal on Dealer's turn.
+    // Dealer stands on 16 or higher
+    // All FXML elements should be updated in UpdateView() whenever practical
+    // Feel free to add more methods / static variables
+
     @FXML
     protected void initialize() {
+        //Executes on FXML load operation
         imgvBet10.setOnMouseClicked(event -> updateBet(event, 10));
         imgvBet20.setOnMouseClicked(event -> updateBet(event, 20));
         imgvBet50.setOnMouseClicked(event -> updateBet(event, 50));
@@ -67,6 +76,7 @@ public class Blackjack {
         // deal user two cards
         // deal dealer two hidden cards
         // load next card variable
+        // update status message
         updateView();
     }
 
@@ -74,18 +84,21 @@ public class Blackjack {
     protected void onHit() {
         // add card to user's hand
         // check bust, if so, lose bet, no dealer's turn
+        // update status message
         updateView();
     }
 
     @FXML
     protected void onDoubleDown() {
-        // double bet and do dealers turn (soft 16)
+        // double bet and do dealers turn
+        // update status message
         updateView();
     }
 
     @FXML
     protected void onStand() {
-        // do dealers turn (soft 16)
+        // do dealers turn
+        // update status message
         updateView();
     }
 
@@ -93,7 +106,7 @@ public class Blackjack {
     protected void onCheat() {
         // show Dealer's hand
         // show next card
-        // taunt user via status message
+        // update status message
         // should apply for entire hand, not entire game
         updateView();
     }

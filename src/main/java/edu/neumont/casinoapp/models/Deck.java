@@ -5,23 +5,23 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    private List<Card> deck = new ArrayList<>();
+    private List<Card> cardList = new ArrayList<>();
 
-    public Deck(){
-
+    public Deck() {
+        // generate 52 card deck
     }
 
     public void shuffle(){
-        Collections.shuffle(deck);
+        Collections.shuffle(cardList);
     }
 
     public Card pop(){
-        return deck.remove(0);
+        return cardList.remove(0);
     }
     public List<Card> popMany(int count){
         List<Card> cards = new ArrayList<>();
         for(int i = 0; i < count; i++){
-            cards.add(deck.remove(0));
+            cards.add(cardList.remove(0));
         }
         return cards;
     }
