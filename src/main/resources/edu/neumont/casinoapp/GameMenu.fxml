@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--Formerly known as 'GameMenu.fxml' -->
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@css/application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.neumont.casinoapp.GameMenu">
+   <children>
+      <ImageView fx:id="imgvBackground" fitHeight="400.0" fitWidth="600.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0">
+         <image>
+            <Image url="@assets/Backgrounds/HomeScreenBG.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <Label layoutX="177.0" layoutY="95.0" prefHeight="50.0" prefWidth="275.0" styleClass="header-medieval" text="Choose Your Game!" AnchorPane.leftAnchor="177.0" AnchorPane.topAnchor="95.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <VBox layoutX="63.0" layoutY="165.0" maxWidth="100.0" AnchorPane.topAnchor="165.0">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-bac: #ffffff;" styleClass="icon-bg">
+               <image>
+                  <Image url="@assets/OverallUI/iconBlackjack.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button maxWidth="100.0" mnemonicParsing="false" onMouseClicked="#onBlackjackClick" prefWidth="100.0" styleClass="button-style-medieval" stylesheets="@css/application.css" text="Blackjack" />
+         </children>
+      </VBox>
+      <VBox layoutX="189.0" layoutY="165.0" maxWidth="100.0" AnchorPane.topAnchor="165.0">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-bac: #ffffff;" styleClass="icon-bg">
+               <image>
+                  <Image url="@assets/OverallUI/iconKingsCorner.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button maxWidth="100.0" mnemonicParsing="false" onMouseClicked="#onKingsCornerClick" prefWidth="100.0" styleClass="button-style-medieval" stylesheets="@css/application.css" text="King's Corner" />
+         </children>
+      </VBox>
+      <VBox layoutX="315.0" layoutY="165.0" maxWidth="100.0" AnchorPane.topAnchor="165.0">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-bac: #ffffff;" styleClass="icon-bg">
+               <image>
+                  <Image url="@assets/OverallUI/iconAceToTen.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button maxWidth="100.0" mnemonicParsing="false" onMouseClicked="#onAceToTenClick" prefWidth="100.0" styleClass="button-style-medieval" stylesheets="@css/application.css" text="Ace to Ten" />
+         </children>
+      </VBox>
+      <VBox layoutX="444.0" layoutY="165.0" maxWidth="100.0" AnchorPane.topAnchor="165.0">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-bac: #ffffff;" styleClass="icon-bg">
+               <image>
+                  <Image url="@assets/OverallUI/iconMysteryGame.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button maxWidth="100.0" mnemonicParsing="false" onMouseClicked="#onMysteryClick" prefWidth="100.0" styleClass="button-style-medieval" stylesheets="@css/application.css" text="     ???     " />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,46 @@
+/*
+ For whatever reason, custom fonts with spaces in their name do NOT load in JavaFX properly.
+ Pretty sure this is happening under the hood, so I can't patch it. Custom fonts will also not
+ work if your project's absolute file path (outside IntelliJ) has spaces in it.
+ */
+
+@font-face {
+    /* Somehow, this is the only custom font that works */
+    font-family: 'Chomsky';
+    src: url('../assets/Fonts/Chomsky.otf');
+}
+
+@font-face {
+    font-family: 'KELMSCOT';
+    src: url('../assets/Fonts/KELMSCOT.ttf');
+}
+
+.button-style-medieval {
+    -fx-background-color: #c5c5c5;
+    -fx-border-width: 2;
+    -fx-border-color: #7c7c7c;
+    -fx-font-family: "Chomsky";
+    -fx-font-size: 15;
+}
+
+.header-medieval {
+    -fx-font-family: "Chomsky";
+    -fx-font-size: 36;
+    -fx-text-fill: #030303;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+}
+
+.header-game {
+    -fx-font-family: "KELMSCOT";
+    -fx-font-size: 36;
+    -fx-text-fill: #030303;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+}
+
+.game-bg {
+    -fx-background-image: url('../assets/Backgrounds/GenericFeltMatBG.jpeg');
+}
+
+.icon-bg {
+    -fx-background-color: #ffffff;
+}
