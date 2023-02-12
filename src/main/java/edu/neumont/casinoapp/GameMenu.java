@@ -6,7 +6,6 @@ import javafx.stage.Stage;
 
 public class GameMenu {
 
-
     @FXML
     private Label welcomeText;
 
@@ -18,26 +17,22 @@ public class GameMenu {
     @FXML
     protected void onBlackjackClick() {
         BaseApplication.sh.activate("Blackjack");
-        BaseApplication.sh.resize(500, 650);
     }
 
     @FXML
     protected void onKingsCornerClick() {
         BaseApplication.sh.activate("KingsCorner");
-        BaseApplication.sh.resize(400, 600);
     }
 
     @FXML
     protected void onAceToTenClick() {
         BaseApplication.sh.activate("AceToTen");
-        BaseApplication.sh.resize(400, 600);
     }
 
 
     @FXML
     protected void onMysteryClick() {
         BaseApplication.sh.activate("Mystery");
-        BaseApplication.sh.resize(400, 600);
     }
 
 }

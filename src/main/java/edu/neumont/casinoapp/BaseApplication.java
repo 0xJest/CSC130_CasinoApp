@@ -18,21 +18,19 @@ public class BaseApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(BaseApplication.class.getResource("GameMenu.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Karen's Card Casino");
-        stage.setResizable(true);
         stage.setScene(scene);
 
         sh = new SceneHandler(scene);
-        sh.addScene("GameMenu", FXMLLoader.load(getClass().getResource( "GameMenu.fxml" )));
-        sh.addScene("Blackjack", FXMLLoader.load(getClass().getResource( "Blackjack.fxml" )));
-        sh.addScene("KingsCorner", FXMLLoader.load(getClass().getResource( "KingsCorner.fxml" )));
-        sh.addScene("AceToTen", FXMLLoader.load(getClass().getResource( "AceToTen.fxml" )));
-        sh.addScene("Mystery", FXMLLoader.load(getClass().getResource( "Mystery.fxml" )));
+        sh.addScene("GameMenu", FXMLLoader.load(getClass().getResource( "GameMenu.fxml" )),600, 400);
+        sh.addScene("Blackjack", FXMLLoader.load(getClass().getResource( "Blackjack.fxml" )), 650, 530);
+        sh.addScene("KingsCorner", FXMLLoader.load(getClass().getResource( "KingsCorner.fxml" )), 600, 400);
+        sh.addScene("AceToTen", FXMLLoader.load(getClass().getResource( "AceToTen.fxml" )), 600, 400);
+        sh.addScene("Mystery", FXMLLoader.load(getClass().getResource( "Mystery.fxml" )), 600, 365);
         stage.show();
     }
 
     public static void main(String[] args) {
         launch();
     }
-
 
 }
