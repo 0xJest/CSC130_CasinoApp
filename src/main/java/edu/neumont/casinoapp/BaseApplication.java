@@ -18,6 +18,7 @@ public class BaseApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(BaseApplication.class.getResource("GameMenu.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Karen's Card Casino");
+        stage.setResizable(true);
         stage.setScene(scene);
 
         sh = new SceneHandler(scene);

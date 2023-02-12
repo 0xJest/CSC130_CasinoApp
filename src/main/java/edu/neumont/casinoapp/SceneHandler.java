@@ -2,6 +2,7 @@ package edu.neumont.casinoapp;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.util.HashMap;
 
@@ -23,6 +24,12 @@ public class SceneHandler {
 
     protected void activate(String name) {
         main.setRoot(screenMap.get(name));
+    }
+
+    protected void resize(int height, int width) {
+        Stage stage = (Stage) main.getWindow();
+        stage.setHeight(height);
+        stage.setWidth(width);
     }
 
     // All code hosted in this class was repurposed from StackOverflow.
