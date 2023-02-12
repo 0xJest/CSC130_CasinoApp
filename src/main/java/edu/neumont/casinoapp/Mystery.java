@@ -8,7 +8,7 @@ import java.net.URL;
 public class Mystery {
 
     @FXML
-    protected void onMenuClick() {
+    protected void onReturnMenu() {
         BaseApplication.sh.activate("GameMenu");
     }
 

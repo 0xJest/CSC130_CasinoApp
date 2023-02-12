@@ -5,6 +5,6 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" styleClass="mystery-bg" stylesheets="@css/application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.neumont.casinoapp.Mystery">
    <children>
-      <Button layoutX="14.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#onMenuClick" styleClass="button-style-medieval" text="Return to Menu" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+      <Button layoutX="14.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#onReturnMenu" styleClass="button-style-medieval" text="Return to Menu" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
    </children>
 </AnchorPane>

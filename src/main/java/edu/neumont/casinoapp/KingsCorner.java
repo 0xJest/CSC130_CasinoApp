@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 
 public class KingsCorner {
     @FXML
-    protected void onMenuClick() {
+    protected void onReturnMenu() {
         BaseApplication.sh.activate("GameMenu");
     }
 }
