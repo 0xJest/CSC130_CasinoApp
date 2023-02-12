@@ -2,9 +2,9 @@ package edu.neumont.casinoapp;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class GameMenu {
-
 
     @FXML
     private Label welcomeText;
@@ -28,6 +28,7 @@ public class GameMenu {
     protected void onAceToTenClick() {
         BaseApplication.sh.activate("AceToTen");
     }
+
 
     @FXML
     protected void onMysteryClick() {

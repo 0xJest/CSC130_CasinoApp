@@ -1,19 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@css/application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.neumont.casinoapp.Blackjack">
+<AnchorPane maxHeight="1.7976931348623157E308" prefHeight="500.0" prefWidth="650.0" stylesheets="@css/application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.neumont.casinoapp.Blackjack">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="500.0" fitWidth="650.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@assets/Backgrounds/GenericFeltMatBG.jpeg" />
          </image>
       </ImageView>
-      <Label layoutX="228.0" layoutY="14.0" styleClass="header-game" text="Blackjack" AnchorPane.topAnchor="15.0" />
-      <Button layoutX="14.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#onMenuClick" styleClass="button-style-medieval" text="Return to Menu" />
+      <Label layoutX="261.0" layoutY="20.0" styleClass="header-medieval" text="Blackjack" AnchorPane.topAnchor="20.0" />
+      <Label layoutX="46.0" layoutY="103.0" prefWidth="111.0" styleClass="header-medieval" text="Player" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="105.0" />
+      <Label layoutX="445.0" layoutY="103.0" prefWidth="111.0" styleClass="header-medieval" text="Dealer" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="105.0" />
+      <Label fx:id="lblStatusBar" alignment="CENTER" layoutX="135.0" layoutY="333.0" prefHeight="35.0" prefWidth="379.0" styleClass="button-style-medieval" text="Welcome To BlackJack! Select a bid to begin!" textAlignment="CENTER" AnchorPane.bottomAnchor="131.66666666666666" AnchorPane.rightAnchor="135.0" />
+      <AnchorPane layoutX="20.0" layoutY="23.0" prefHeight="70.0" prefWidth="150.0" styleClass="button-style-medieval" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Label layoutX="14.0" layoutY="7.0" prefHeight="26.0" prefWidth="73.0" text="Total Funds:" />
+            <Label layoutX="14.0" layoutY="33.0" prefHeight="26.0" prefWidth="73.0" text="Current Bet:" />
+            <Label fx:id="lblCurrentBet" layoutX="89.0" layoutY="36.0" prefHeight="20.0" prefWidth="53.0" />
+            <Label fx:id="lblTotalFunds" layoutX="89.0" layoutY="10.0" prefHeight="20.0" prefWidth="53.0" />
+         </children>
+      </AnchorPane>
+      <HBox layoutX="479.0" layoutY="23.0" prefHeight="70.0" prefWidth="150.0" styleClass="button-style-medieval" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="66.0" prefWidth="88.0" text="Next Card:" />
+            <ImageView fx:id="imgvNextCard" fitHeight="57.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets top="4.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <Button layoutX="269.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#onHit" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Hit" AnchorPane.topAnchor="152.0" />
+      <Button layoutX="269.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#onStand" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Stand" AnchorPane.topAnchor="270.0" />
+      <Button layoutX="269.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#onDoubleDown" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Double Down!" AnchorPane.topAnchor="211.0" />
+      <Button fx:id="onConfirmBet" layoutX="537.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#onConfirmBet" styleClass="button-style-medieval" text="Confirm Bet" AnchorPane.bottomAnchor="131.33333333333334" AnchorPane.rightAnchor="20.0" />
+      <Button layoutX="20.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#onReturnMenu" styleClass="button-style-medieval" text="Return to Menu" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+      <Button layoutX="20.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#onCheat" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Cheat!" AnchorPane.bottomAnchor="72.66666666666666" AnchorPane.leftAnchor="20.0" />
+      <TitledPane animated="false" layoutX="176.0" layoutY="385.0" prefHeight="100.0" prefWidth="459.0" styleClass="button-style-medieval" text="Select Bet" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="73.0" fitWidth="463.0" layoutX="-9.0" layoutY="-5.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@assets/Backgrounds/GreyFeltBG.jpg" />
+                     </image>
+                  </ImageView>
+                  <HBox prefHeight="66.0" prefWidth="487.0">
+                     <children>
+                        <ImageView fx:id="imgvBet10" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/OverallUI/Chip10.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="13.0" right="3.0" top="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="imgvBet20" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/OverallUI/Chip20.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="3.0" right="3.0" top="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="imgvBet50" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/OverallUI/Chip50.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="3.0" right="3.0" top="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="imgvBet100" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/OverallUI/Chip100.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="3.0" right="3.0" top="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="imgvBet500" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/OverallUI/Chip500.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="3.0" right="3.0" top="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="imgvBet1K" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/OverallUI/Chip1000.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="3.0" right="3.0" top="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="imgvBet5K" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/OverallUI/Chip5000.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="3.0" right="3.0" top="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Pane layoutX="46.0" layoutY="164.0" prefHeight="118.0" prefWidth="200.0" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="170.0">
+         <children>
+            <ImageView fx:id="imgvPlayerCard5" fitHeight="118.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgvPlayerCard3" fitHeight="118.0" fitWidth="89.0" layoutX="22.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgvPlayerCard1" fitHeight="118.0" fitWidth="89.0" layoutX="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/BlackJack/Cards/cardBack_red5.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgvPlayerCard2" fitHeight="118.0" fitWidth="89.0" layoutX="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/BlackJack/Cards/cardBack_red5.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgvPlayerCard4" fitHeight="118.0" fitWidth="89.0" layoutX="86.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgvPlayerCard6" fitHeight="118.0" fitWidth="89.0" layoutX="108.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Pane layoutX="398.0" layoutY="164.0" prefHeight="118.0" prefWidth="200.0" AnchorPane.leftAnchor="403.0" AnchorPane.topAnchor="170.0">
+         <children>
+            <ImageView fx:id="imgvDealerCard5" fitHeight="118.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgvDealerCard3" fitHeight="118.0" fitWidth="89.0" layoutX="22.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgvDealerCard1" fitHeight="118.0" fitWidth="89.0" layoutX="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/BlackJack/Cards/cardBack_red5.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgvDealerCard2" fitHeight="118.0" fitWidth="89.0" layoutX="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/BlackJack/Cards/cardBack_red5.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgvDealerCard4" fitHeight="118.0" fitWidth="89.0" layoutX="86.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgvDealerCard6" fitHeight="118.0" fitWidth="89.0" layoutX="108.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

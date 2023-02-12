@@ -44,3 +44,8 @@
 .icon-bg {
     -fx-background-color: #ffffff;
 }
+
+.mystery-bg {
+    -fx-background-image: url('../assets/Backgrounds/_.jpg');
+    -fx-background-size: 100%, 600;
+}
