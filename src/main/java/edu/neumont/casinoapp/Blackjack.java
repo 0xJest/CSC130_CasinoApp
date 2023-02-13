@@ -4,6 +4,7 @@ import edu.neumont.casinoapp.models.Card;
 import edu.neumont.casinoapp.models.Deck;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,6 +21,7 @@ public class Blackjack {
     private static Card NEXT_CARD;
     private static ArrayList<Card> PLAYER_HAND = new ArrayList<>();
     private static ArrayList<Card> DEALER_HAND = new ArrayList<>();
+    private static boolean TOGGLE_GAME_BUTTONS = false;
 
     private static Deck deck = new Deck();
     private static int playerTotal = 0;
@@ -34,6 +36,8 @@ public class Blackjack {
     private ImageView imgvDealerCard1, imgvDealerCard2, imgvDealerCard3, imgvDealerCard4, imgvDealerCard5, imgvDealerCard6;
     @FXML
     private ImageView imgvPlayerCard1, imgvPlayerCard2, imgvPlayerCard3, imgvPlayerCard4, imgvPlayerCard5, imgvPlayerCard6;
+    @FXML
+    private Button btnHit, btnDoubleDown, btnStand;
 
     private ImageView[] playerCards = {imgvPlayerCard1, imgvPlayerCard2, imgvPlayerCard3, imgvPlayerCard4, imgvPlayerCard5, imgvPlayerCard6};
     private ImageView[] dealerCards = {imgvDealerCard1, imgvDealerCard2, imgvDealerCard3, imgvDealerCard4, imgvDealerCard5, imgvDealerCard6};
@@ -63,6 +67,9 @@ public class Blackjack {
         lblCurrentBet.setText(CURRENT_BET + "");
         lblTotalFunds.setText(TOTAL_FUNDS + "");
         lblStatusBar.setText(STATUS_MSG);
+        btnHit.setDisable(!TOGGLE_GAME_BUTTONS);
+        btnDoubleDown.setDisable(!TOGGLE_GAME_BUTTONS);
+        btnStand.setDisable(!TOGGLE_GAME_BUTTONS);
     }
 
     private void updateBet(MouseEvent event, int betAmount) {
@@ -100,6 +107,7 @@ public class Blackjack {
             showCardsInImagePaneDealer(DEALER_HAND);
         }
 
+        TOGGLE_GAME_BUTTONS = true;
         updateView();
     }
 
@@ -170,6 +178,7 @@ public class Blackjack {
         }
 
         // update status message and display dealer's cards
+        TOGGLE_GAME_BUTTONS = false;
         showCardsInImagePaneDealer(DEALER_HAND);
         updateView();
     }

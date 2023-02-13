@@ -39,9 +39,9 @@
             </ImageView>
          </children>
       </HBox>
-      <Button layoutX="269.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#onHit" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Hit" AnchorPane.topAnchor="152.0" />
-      <Button layoutX="269.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#onStand" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Stand" AnchorPane.topAnchor="270.0" />
-      <Button layoutX="269.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#onDoubleDown" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Double Down!" AnchorPane.topAnchor="211.0" />
+      <Button fx:id="btnHit" layoutX="269.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#onHit" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Hit" AnchorPane.topAnchor="152.0" />
+      <Button fx:id="btnStand" layoutX="269.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#onStand" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Stand" AnchorPane.topAnchor="270.0" />
+      <Button fx:id="btnDoubleDown" layoutX="269.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#onDoubleDown" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Double Down!" AnchorPane.topAnchor="211.0" />
       <Button fx:id="onConfirmBet" layoutX="537.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#onConfirmBet" styleClass="button-style-medieval" text="Confirm Bet" AnchorPane.bottomAnchor="131.33333333333334" AnchorPane.rightAnchor="20.0" />
       <Button layoutX="20.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#onReturnMenu" styleClass="button-style-medieval" text="Return to Menu" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
       <Button layoutX="20.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#onCheat" prefHeight="35.0" prefWidth="111.0" styleClass="button-style-medieval" text="Cheat!" AnchorPane.bottomAnchor="72.66666666666666" AnchorPane.leftAnchor="20.0" />
