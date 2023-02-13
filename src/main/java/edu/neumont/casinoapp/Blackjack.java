@@ -1,6 +1,7 @@
 package edu.neumont.casinoapp;
 
 import edu.neumont.casinoapp.models.Card;
+import edu.neumont.casinoapp.models.Deck;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -9,11 +10,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
+import java.util.ArrayList;
+
 public class Blackjack {
     private static int TOTAL_FUNDS = 5000;
     private static int CURRENT_BET = 0;
     private static String STATUS_MSG = "Welcome to Blackjack! Please Select a bet to begin!";
     private static Card NEXT_CARD;
+    private static ArrayList<Card> PLAYER_HAND = new ArrayList<>();
+    private static ArrayList<Card> DEALER_HAND = new ArrayList<>();
+
+    private static Deck deck = new Deck();
 
     @FXML
     private Label lblStatusBar, lblCurrentBet, lblTotalFunds;
@@ -73,17 +80,36 @@ public class Blackjack {
 
     @FXML
     protected void onConfirmBet() {
+        deck.shuffelMany(3);
         // deal user two cards
+        PLAYER_HAND.addAll(deck.popMany(2));
         // deal dealer two hidden cards
+        DEALER_HAND.addAll(deck.popMany(2));
         // load next card variable
+        NEXT_CARD = deck.pop();
         // update status message
+        STATUS_MSG = "Select an action to continue!";
+        showCardsInImagePane(playerCards, PLAYER_HAND);
+        showCardsInImagePane(dealerCards, DEALER_HAND);
         updateView();
     }
 
     @FXML
     protected void onHit() {
         // add card to user's hand
+        PLAYER_HAND.add(deck.pop());
         // check bust, if so, lose bet, no dealer's turn
+        for (Card card : PLAYER_HAND) {
+            if (card.getValue() == 11) {
+                if (card.getValue() + 10 > 21) {
+                    STATUS_MSG = "You busted! You lost your bet!";
+                    TOTAL_FUNDS -= CURRENT_BET;
+                    CURRENT_BET = 0;
+                    updateView();
+                    return;
+                }
+            }
+        }
         // update status message
         updateView();
     }
@@ -111,8 +137,19 @@ public class Blackjack {
         updateView();
     }
 
+
     @FXML
     protected void onReturnMenu() {
         BaseApplication.sh.activate("GameMenu");
+    }
+
+    protected void showCardsInImagePane(ImageView[] imageViews, ArrayList<Card> cards) {
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i) != null) {
+                imageViews[i].setImage(new Image(cards.get(i).getFileName()));
+            }
+
+        }
+
     }
 }
