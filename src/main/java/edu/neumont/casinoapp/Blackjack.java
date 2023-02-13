@@ -22,6 +22,9 @@ public class Blackjack {
     private static ArrayList<Card> DEALER_HAND = new ArrayList<>();
 
     private static Deck deck = new Deck();
+    private static int playerTotal = 0;
+    private static int dealerTotal = 0;
+    private boolean cheat = false;
 
     @FXML
     private Label lblStatusBar, lblCurrentBet, lblTotalFunds;
@@ -81,6 +84,7 @@ public class Blackjack {
 
     @FXML
     protected void onConfirmBet() {
+        resetBlackJack();
         deck.shuffelMany(3);
         // deal user two cards
         PLAYER_HAND.addAll(deck.popMany(2));
@@ -90,34 +94,44 @@ public class Blackjack {
         NEXT_CARD = deck.pop();
         // update status message
         STATUS_MSG = "Select an action to continue!";
+
         showCardsInImagePanePlayer(PLAYER_HAND);
-        showCardsInImagePaneDealer( DEALER_HAND);
+        showCardsInImagePaneDealer(DEALER_HAND);
+
         updateView();
     }
 
     @FXML
     protected void onHit() {
         // add card to user's hand
-        PLAYER_HAND.add(deck.pop());
+        if (PLAYER_HAND.size() < 6) {
+            PLAYER_HAND.add(deck.pop());
+        }
         // check bust, if so, lose bet, no dealer's turn
+        playerTotal = 0;
         for (Card card : PLAYER_HAND) {
-            if (card.getValue() == 11) {
-                if (card.getValue() + 10 > 21) {
-                    STATUS_MSG = "You busted! You lost your bet!";
-                    TOTAL_FUNDS -= CURRENT_BET;
-                    CURRENT_BET = 0;
-                    updateView();
-                    return;
-                }
+            playerTotal += card.getValue();
+            if (playerTotal > 21) {
+                STATUS_MSG = "You busted! You lose your bet!";
+                TOTAL_FUNDS -= CURRENT_BET;
+                CURRENT_BET = 0;
+                break;
             }
         }
         // update status message
+        showCardsInImagePanePlayer(PLAYER_HAND);
         updateView();
     }
 
     @FXML
     protected void onDoubleDown() {
         // double bet and do dealers turn
+        if (CURRENT_BET * 2 <= TOTAL_FUNDS) {
+            CURRENT_BET *= 2;
+            onStand();
+        } else {
+            STATUS_MSG = "You don't have enough to double down!";
+        }
         // update status message
         updateView();
     }
@@ -125,13 +139,50 @@ public class Blackjack {
     @FXML
     protected void onStand() {
         // do dealers turn
-        // update status message
+        if (DEALER_HAND.size() < 6) {
+            DEALER_HAND.add(deck.pop());
+        }
+
+        // calculate dealer total
+        int dealerTotal = 0;
+        for (Card card : DEALER_HAND) {
+            dealerTotal += card.getValue();
+        }
+
+        // check for bust
+        if (dealerTotal > 21) {
+            STATUS_MSG = "Dealer busted! You win your bet!";
+            TOTAL_FUNDS += CURRENT_BET;
+            CURRENT_BET = 0;
+        } else if (dealerTotal > playerTotal) {
+            STATUS_MSG = "Dealer has a higher hand! You lose your bet!";
+            TOTAL_FUNDS -= CURRENT_BET;
+            CURRENT_BET = 0;
+        } else if (dealerTotal < playerTotal) {
+            STATUS_MSG = "Dealer has a lower hand! You win your bet!";
+            TOTAL_FUNDS += CURRENT_BET;
+            CURRENT_BET = 0;
+        } else {
+            STATUS_MSG = "It's a tie! Your bet is returned.";
+        }
+
+        // update status message and display dealer's cards
+        showCardsInImagePaneDealer(DEALER_HAND);
         updateView();
     }
+
 
     @FXML
     protected void onCheat() {
         // show Dealer's hand
+        if(cheat == false){
+            cheat = true;
+            showCardsInImagePaneDealer(DEALER_HAND);
+        }
+        else{
+            cheat = false;
+
+        }
         // show next card
         // update status message
         // should apply for entire hand, not entire game
@@ -162,7 +213,8 @@ public class Blackjack {
         }
 
     }
-    protected void showCardsInImagePaneDealer( ArrayList<Card> cards) {
+
+    protected void showCardsInImagePaneDealer(ArrayList<Card> cards) {
         for (int i = 0; i < cards.size(); i++) {
             File file = new File(cards.get(i).getFileName());
             if (file.exists() && file.canRead()) {
@@ -179,6 +231,32 @@ public class Blackjack {
             }
         }
 
+    }
+
+    protected void resetBlackJack() {
+        // reset all variables
+        playerTotal = 0;
+        dealerTotal = 0;
+        deck = new Deck();
+        PLAYER_HAND = new ArrayList<>();
+        DEALER_HAND = new ArrayList<>();
+        NEXT_CARD = null;
+        STATUS_MSG = "Select a bet to begin!";
+        // reset all FXML elements
+        imgvPlayerCard1.setImage(null);
+        imgvPlayerCard2.setImage(null);
+        imgvPlayerCard3.setImage(null);
+        imgvPlayerCard4.setImage(null);
+        imgvPlayerCard5.setImage(null);
+        imgvPlayerCard6.setImage(null);
+        imgvDealerCard1.setImage(null);
+        imgvDealerCard2.setImage(null);
+        imgvDealerCard3.setImage(null);
+        imgvDealerCard4.setImage(null);
+        imgvDealerCard5.setImage(null);
+        imgvDealerCard6.setImage(null);
+        // update status message
+        updateView();
     }
 
 }
