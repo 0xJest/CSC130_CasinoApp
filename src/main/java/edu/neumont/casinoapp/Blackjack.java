@@ -96,7 +96,9 @@ public class Blackjack {
         STATUS_MSG = "Select an action to continue!";
 
         showCardsInImagePanePlayer(PLAYER_HAND);
-        showCardsInImagePaneDealer(DEALER_HAND);
+        if(cheat) {
+            showCardsInImagePaneDealer(DEALER_HAND);
+        }
 
         updateView();
     }
@@ -115,6 +117,7 @@ public class Blackjack {
                 STATUS_MSG = "You busted! You lose your bet!";
                 TOTAL_FUNDS -= CURRENT_BET;
                 CURRENT_BET = 0;
+                showCardsInImagePaneDealer(DEALER_HAND);
                 break;
             }
         }
