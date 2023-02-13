@@ -81,7 +81,7 @@ public class Blackjack {
                 STATUS_MSG = "You don't have enough to bet that much!";
             }
         } else if (event.getButton() == MouseButton.SECONDARY) {
-            if (CURRENT_BET - betAmount > 0) {
+            if (CURRENT_BET - betAmount >= 0) {
                 STATUS_MSG = "Confirm your bet to deal a new hand!";
                 CURRENT_BET -= betAmount;
             }
