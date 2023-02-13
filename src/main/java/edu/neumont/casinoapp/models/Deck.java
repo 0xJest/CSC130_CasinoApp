@@ -12,7 +12,7 @@ public class Deck {
         for (Suits suit : Suits.values()) {
 
             for (int i = 1; i <= 13; i++) {
-                String filePath = "src/main/resources/edu/neumont/casinoapp/assets/BlackJack/Cards/card";
+                String filePath = "./src/main/resources/edu/neumont/casinoapp/assets/BlackJack/Cards/card";
                 if (i == 1)
                     cardList.add(new Card(suit, i, filePath + suit.toString() + "A" + ".png"));
                 else if (i == 11)

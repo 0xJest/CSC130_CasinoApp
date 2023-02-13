@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Blackjack {
@@ -89,8 +90,8 @@ public class Blackjack {
         NEXT_CARD = deck.pop();
         // update status message
         STATUS_MSG = "Select an action to continue!";
-        showCardsInImagePane(playerCards, PLAYER_HAND);
-        showCardsInImagePane(dealerCards, DEALER_HAND);
+        showCardsInImagePanePlayer(PLAYER_HAND);
+        showCardsInImagePaneDealer( DEALER_HAND);
         updateView();
     }
 
@@ -143,13 +144,41 @@ public class Blackjack {
         BaseApplication.sh.activate("GameMenu");
     }
 
-    protected void showCardsInImagePane(ImageView[] imageViews, ArrayList<Card> cards) {
+    protected void showCardsInImagePanePlayer(ArrayList<Card> cards) {
         for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i) != null) {
-                imageViews[i].setImage(new Image(cards.get(i).getFileName()));
+            File file = new File(cards.get(i).getFileName());
+            if (file.exists() && file.canRead()) {
+                switch (i) {
+                    case 0 -> imgvPlayerCard1.setImage(new Image(file.toURI().toString()));
+                    case 1 -> imgvPlayerCard2.setImage(new Image(file.toURI().toString()));
+                    case 2 -> imgvPlayerCard3.setImage(new Image(file.toURI().toString()));
+                    case 3 -> imgvPlayerCard4.setImage(new Image(file.toURI().toString()));
+                    case 4 -> imgvPlayerCard5.setImage(new Image(file.toURI().toString()));
+                    case 5 -> imgvPlayerCard6.setImage(new Image(file.toURI().toString()));
+                    default -> {
+                    }
+                }
             }
-
         }
 
     }
+    protected void showCardsInImagePaneDealer( ArrayList<Card> cards) {
+        for (int i = 0; i < cards.size(); i++) {
+            File file = new File(cards.get(i).getFileName());
+            if (file.exists() && file.canRead()) {
+                switch (i) {
+                    case 0 -> imgvDealerCard1.setImage(new Image(file.toURI().toString()));
+                    case 1 -> imgvDealerCard2.setImage(new Image(file.toURI().toString()));
+                    case 2 -> imgvDealerCard3.setImage(new Image(file.toURI().toString()));
+                    case 3 -> imgvDealerCard4.setImage(new Image(file.toURI().toString()));
+                    case 4 -> imgvDealerCard5.setImage(new Image(file.toURI().toString()));
+                    case 5 -> imgvDealerCard6.setImage(new Image(file.toURI().toString()));
+                    default -> {
+                    }
+                }
+            }
+        }
+
+    }
+
 }
